@@ -1,8 +1,9 @@
 version: 2.1
-sudo: required
-services:
-  - docker
 
-run:
-  - docker build -t shanbic/docker-react-udemy -f Dockerfile.dev .
-  - docker run -e CI=true shanbic/docker-react-udemy npm run test
+jobs:
+  build:
+    machine:
+      image: ubuntu-2204:2022.04.2
+    steps:
+      - run: docker build -t shanbic/docker-react-udemy -f Dockerfile.dev .
+      - run: docker run -e CI=true shanbic/docker-react-udemy npm run test
