@@ -1,9 +1,0 @@
-version: 2.1
-
-jobs:
-  build:
-    machine:
-      image: Dockerfile.dev
-    steps:
-      - run: docker build -t shanbic/docker-react-udemy -f Dockerfile.dev .
-      - run: docker run -e CI=true shanbic/docker-react-udemy npm run test
